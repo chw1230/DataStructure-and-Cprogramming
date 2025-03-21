@@ -7,19 +7,19 @@ struct employee
 	int n;
 };
 
-int main_b(void) {
+int main(void) {
 	struct employee emp;
-	printf("ÀÌ¸§ ÀÔ·Â: "); 
+	printf("ì´ë¦„ ì…ë ¥: "); 
 	scanf("%s", emp.name);
 
-	printf("\nÁÖ¹Î µî·Ï ¹øÈ£ ÀÔ·Â: ");
+	printf("\nì£¼ë¯¼ ë“±ë¡ ë²ˆí˜¸ ì…ë ¥: ");
 	scanf("%s", emp.number);
 
-	printf("\n±Ş¿© ÀÔ·Â: ");
+	printf("\nê¸‰ì—¬ ì…ë ¥: ");
 	scanf("%d", &(emp.n));
 
-	printf("ÀÌ¸§: %s\n", emp.name);
-	printf("ÁÖ¹Î µî·Ï ¹øÈ£ : %s\n", emp.number);
-	printf("±Ş¿© : %d",emp.n);
+	printf("ì´ë¦„: %s\n", emp.name);
+	printf("ì£¼ë¯¼ ë“±ë¡ ë²ˆí˜¸ : %s\n", emp.number);
+	printf("ê¸‰ì—¬ : %d",emp.n);
 	return 0;
 }
