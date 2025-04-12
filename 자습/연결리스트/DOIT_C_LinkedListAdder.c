@@ -8,7 +8,7 @@ typedef struct node {
 
 void AddNum(Node **head, Node **tail, int data) {
 	if (*head != NULL) {  // head가 참조하는 경우
-		(*tail) -> next = (Node*)malloc(sizeof(Node));
+		(*tail) -> next = (Node*)malloc(sizeof(Node)); // 메모리 할당
 		*tail = (*tail)->next; // 마지막 노드 최신화
 	}
 	else { // head가 아무 것도 참조 하지 않는 경우
@@ -21,7 +21,7 @@ void AddNum(Node **head, Node **tail, int data) {
 
 
 void main(void) {
-	Node* head = NULL;
+	Node* head = NULL; // 헤드 포인터 첫번째 노드를 가리킴
 	Node* tail = NULL;
 	Node* p;
 	int data;
