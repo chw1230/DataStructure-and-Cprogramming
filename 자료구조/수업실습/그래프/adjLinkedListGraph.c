@@ -6,7 +6,7 @@
 
 typedef struct GraphNode {
 	int node; // 노드가 들어가는 변수 
-	struct GrappNode* link; // 다른 노드를 가리킬 포인터 변수
+	struct GraphNode* link; // 다른 노드를 가리킬 포인터 변수
 }GraphNode;
 
 typedef struct GraphType {
