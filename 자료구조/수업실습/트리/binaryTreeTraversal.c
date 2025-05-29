@@ -1,64 +1,64 @@
-//#include <stdio.h>	
-//
-//typedef struct TreeNode {
-//	int data;
-//	struct TreeNode* left, * right;
-//} TreeNode;
-//
-//TreeNode n0 = { 0,NULL,NULL };
-//TreeNode n1 = { 1, NULL, &n0 };
-//TreeNode n2 = { 4, &n1, NULL };
-//TreeNode n3 = { 16, NULL, NULL };
-//TreeNode n7 = { 3, NULL, NULL };
-//TreeNode n8 = { 100, NULL, NULL };
-//TreeNode n4 = { 25, &n8, &n7 };
-//TreeNode n5 = { 20, &n3, &n4 };
-//TreeNode n6 = { 15, &n2, &n5 };
-//TreeNode* root = &n6;
-//
-//// pdf 41ÂÊ
-//
-//// ÁßÀ§ ¼øÈ¸
-//void inorder(TreeNode* root) {
-//	if (root) {
-//		inorder(root->left);
-//		printf("[%d] ", root->data);
-//		inorder(root->right);
-//	}
-//}
-//
-//// ÀüÀ§ ¼øÈ¸
-//void preorder(TreeNode* root) {
-//	if (root){
-//		printf("[%d] ",root->data);
-//		preorder(root->left);
-//		preorder(root->right);
-//	}
-//}
-//
-//// ÈÄÀ§ ¼øÈ¸ 
-//void postorder(TreeNode* root) {
-//	if (root) {
-//		postorder(root->left);
-//		postorder(root->right);
-//		printf("[%d] ", root->data);
-//	}
-//}
-//
-//int main(void) {
-//	// ÀÚ¼Õ º¸´Ù ·çÆ® ¸ÕÀú ¹æ¹®
-//	printf("ÀüÀ§ ¼øÈ¸="); // VLR V(root) -> L(left) -> R(right)
-//	preorder(root);
-//	printf("\n");
-//
-//	// ¿ÞÂÊ ÀÚ¼Õ, ·çÆ®, ¿ìÃø ÀÚ¼Õ ¼ø ¹æ¹®
-//	printf("ÁßÀ§ ¼øÈ¸="); // LVR L(left) -> V(root) -> R(right)
-//	inorder(root);
-//	printf("\n");
-//	
-//	// ·çÆ® º¸´Ù ÀÚ¼Õ ¸ÕÀú ¹æ¹®
-//	printf("ÈÄÀ§ ¼øÈ¸="); // LRVL(left) -> R(right) -> V(root)
-//	postorder(root);
-//	printf("\n");
-//	return 0;
-//}
+#include <stdio.h>	
+
+typedef struct TreeNode {
+	int data;
+	struct TreeNode* left, * right;
+} TreeNode;
+
+TreeNode n0 = { 0,NULL,NULL };
+TreeNode n1 = { 1, NULL, &n0 };
+TreeNode n2 = { 4, &n1, NULL };
+TreeNode n3 = { 16, NULL, NULL };
+TreeNode n7 = { 3, NULL, NULL };
+TreeNode n8 = { 100, NULL, NULL };
+TreeNode n4 = { 25, &n8, &n7 };
+TreeNode n5 = { 20, &n3, &n4 };
+TreeNode n6 = { 15, &n2, &n5 };
+TreeNode* root = &n6;
+
+// pdf 41ìª½
+
+// ì¤‘ìœ„ ìˆœíšŒ
+void inorder(TreeNode* root) {
+	if (root) {
+		inorder(root->left);
+		printf("[%d] ", root->data);
+		inorder(root->right);
+	}
+}
+
+// ì „ìœ„ ìˆœíšŒ
+void preorder(TreeNode* root) {
+	if (root){
+		printf("[%d] ",root->data);
+		preorder(root->left);
+		preorder(root->right);
+	}
+}
+
+// í›„ìœ„ ìˆœíšŒ 
+void postorder(TreeNode* root) {
+	if (root) {
+		postorder(root->left);
+		postorder(root->right);
+		printf("[%d] ", root->data);
+	}
+}
+
+int main(void) {
+	// ìžì† ë³´ë‹¤ ë£¨íŠ¸ ë¨¼ì € ë°©ë¬¸
+	printf("ì „ìœ„ ìˆœíšŒ="); // VLR V(root) -> L(left) -> R(right)
+	preorder(root);
+	printf("\n");
+
+	// ì™¼ìª½ ìžì†, ë£¨íŠ¸, ìš°ì¸¡ ìžì† ìˆœ ë°©ë¬¸
+	printf("ì¤‘ìœ„ ìˆœíšŒ="); // LVR L(left) -> V(root) -> R(right)
+	inorder(root);
+	printf("\n");
+	
+	// ë£¨íŠ¸ ë³´ë‹¤ ìžì† ë¨¼ì € ë°©ë¬¸
+	printf("í›„ìœ„ ìˆœíšŒ="); // LRVL(left) -> R(right) -> V(root)
+	postorder(root);
+	printf("\n");
+	return 0;
+}
