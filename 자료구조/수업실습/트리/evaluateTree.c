@@ -1,43 +1,43 @@
-//#include <stdio.h>	
-//
-//typedef struct TreeNode {
-//	int data;
-//	struct TreeNode* left, * right;
-//} TreeNode;
-////			+
-////	  *			 +
-//// 1      4  16      25
-//TreeNode n1 = { 1, NULL, NULL };
-//TreeNode n2 = { 4, NULL, NULL };
-//TreeNode n3 = { '*', &n1, &n2 };
-//TreeNode n4 = { 16, NULL, NULL };
-//TreeNode n5 = { 25, NULL, NULL };
-//TreeNode n6 = { '+', &n4, &n5 };
-//TreeNode n7 = { '+', &n3, &n6 };
-//TreeNode* exp = &n7;
-//
-//int evaluate(TreeNode* root) {
-//	if (root == NULL) {
-//		return 0;
-//	}
-//	if (root->left == NULL && root->right == NULL) { // ¸®ÇÁ ³ëµåµéÀº ÇÇ¿¬»êÀÚ
-//		return root->data; // ¼ıÀÚ °ª ¹İÈ¯ÇÏ±â
-//	} 
-//	else {
-//		int op1 = evaluate(root->left);
-//		int op2 = evaluate(root->right);
-//		printf("%d %c %d¸¦ °è»ê\n", op1, root->data, op2);
-//		switch (root->data) {
-//		case '+': return op1 + op2;
-//		case '*': return op1 * op2;
-//		case '-': return op1 - op2;
-//		case '/': return op1 / op2;
-//		}
-//	}
-//	return 0;
-//}
-//
-//int main(void) {	
-//	printf("¼ö½ÄÀÇ °ªÀº %dÀÌ´Ù.\n", evaluate(exp));
-//	return 0;
-//}
+#include <stdio.h>	
+
+typedef struct TreeNode {
+	int data;
+	struct TreeNode* left, * right;
+} TreeNode;
+//			+
+//	  *			 +
+// 1      4  16      25
+TreeNode n1 = { 1, NULL, NULL };
+TreeNode n2 = { 4, NULL, NULL };
+TreeNode n3 = { '*', &n1, &n2 };
+TreeNode n4 = { 16, NULL, NULL };
+TreeNode n5 = { 25, NULL, NULL };
+TreeNode n6 = { '+', &n4, &n5 };
+TreeNode n7 = { '+', &n3, &n6 };
+TreeNode* exp = &n7;
+
+int evaluate(TreeNode* root) {
+	if (root == NULL) {
+		return 0;
+	}
+	if (root->left == NULL && root->right == NULL) { // ë¦¬í”„ ë…¸ë“œë“¤ì€ í”¼ì—°ì‚°ì
+		return root->data; // ìˆ«ì ê°’ ë°˜í™˜í•˜ê¸°
+	} 
+	else {
+		int op1 = evaluate(root->left);
+		int op2 = evaluate(root->right);
+		printf("%d %c %dë¥¼ ê³„ì‚°\n", op1, root->data, op2);
+		switch (root->data) {
+		case '+': return op1 + op2;
+		case '*': return op1 * op2;
+		case '-': return op1 - op2;
+		case '/': return op1 / op2;
+		}
+	}
+	return 0;
+}
+
+int main(void) {	
+	printf("ìˆ˜ì‹ì˜ ê°’ì€ %dì´ë‹¤.\n", evaluate(exp));
+	return 0;
+}
