@@ -1,78 +1,78 @@
-///*Æ®¸® ¼Ó ³ëµåÀÇ °³¼ö, ³ôÀÌ ±¸ÇÏ±â*/
-//
-//#include <stdio.h>	
-//#include <stdlib.h>
-//#define MAX(a,b) ((a) > (b) ? (a) : (b))
-//
-//typedef struct TreeNode {
-//	int data;
-//	struct TreeNode* left, * right;
-//} TreeNode;
-//
-//TreeNode n0 = { 0,NULL,NULL };
-//TreeNode n1 = { 1, NULL, &n0 };
-//TreeNode n2 = { 4, &n1, NULL };
-//TreeNode n3 = { 16, NULL, NULL };
-//TreeNode n7 = { 3, NULL, NULL };
-//TreeNode n8 = { 100, NULL, NULL };
-//TreeNode n4 = { 25, &n8, &n7 };
-//TreeNode n5 = { 20, &n3, &n4 };
-//TreeNode n6 = { 15, &n2, &n5 };
-//TreeNode* root = &n6;
-//
-//// ³ëµåÀÇ °³¼ö ±¸ÇÏ´Â ÇÔ¼ö
-//int getNodeCount(TreeNode* root) {
-//	int cnt = 0;
-//	if (root != NULL) {
-//		cnt = 1 + getNodeCount(root->left) + getNodeCount(root->right);
-//		// root °¡ NULLÀÌ ¾Æ´Ñ °æ¿ì¿¡¸¸ 1À» ´õÇÏµµ·Ï ÇØ¼­  ³ëµåÀÇ °³¼ö¸¦ °è»ê
-//	}
-//	return cnt;
-//}
-//
-//// leaf ³ëµåÀÇ °³¼ö ±¸ÇÏ´Â ÇÔ¼ö
-//int getLeafNodeCount(TreeNode* root) {
-//	int cnt = 0;
-//	if (root != NULL) { 
-//		if (root->left == NULL && root->right == NULL) {
-//			return 1; // ÀÚ½Ä ³ëµå°¡ ¸ğµÎ NULLÀÌ¸é leaf ³ëµå ÀÌ±â ¶§¹®¿¡ 1À» ¹İÈ¯
-//		}
-//		else {
-//			cnt = getLeafNodeCount(root->left) + getLeafNodeCount(root->right);
-//		}
-//	}
-//	// root °¡ NULL ÀÌ¸é 0À» ¹İÈ¯
-//	return cnt;	
-//}
-//
-//// Non leaf ³ëµåÀÇ °³¼ö ±¸ÇÏ´Â ÇÔ¼ö
-//int getNonLeafNodeCount(TreeNode* root) {
-//	int cnt = 0;
-//	if (root != NULL) {
-//		if (root->left != NULL || root->right != NULL) {
-//			// ÀÚ½Ä ³ëµå°¡ 1°³ ÀÌ»ó ÀÖÀ¸¸é ¸®ÇÁ ³ëµå°¡ ¾Æ´Ï±â ¶§¹®¿¡ ÀÌ¿Í °°ÀÌ Á¶°ÇÀ» ¼³Á¤
-//			cnt = 1 + getNonLeafNodeCount(root->left) + getNonLeafNodeCount(root->right); 
-//		}
-//		else {
-//			return 0;
-//		}
-//	}
-//	return cnt;
-//}
-//
-//// Æ®¸®ÀÇ ³ôÀÌ¸¦ ±¸ÇÏ´Â ÇÔ¼ö
-//int getHeight(TreeNode* root) {
-//	int height = 0;
-//	if (root != NULL) {
-//		height = 1 + MAX(getHeight(root->left), getHeight(root->right));
-//	}
-//	return height;
-//}
-//
-//int main(void) {
-//	printf("³ëµåÀÇ °³¼ö ±¸ÇÏ±â = %d\n", getNodeCount(root)); 
-//	printf("Leaf ³ëµåÀÇ °³¼ö ±¸ÇÏ±â = %d\n", getLeafNodeCount(root));
-//	printf("Non Leaf ³ëµåÀÇ °³¼ö ±¸ÇÏ±â = %d\n", getNonLeafNodeCount(root));
-//	printf("TreeÀÇ ³ôÀÌ ±¸ÇÏ±â = %d\n", getHeight(root));
-//	return 0;
-//}
+/*íŠ¸ë¦¬ ì† ë…¸ë“œì˜ ê°œìˆ˜, ë†’ì´ êµ¬í•˜ê¸°*/
+
+#include <stdio.h>	
+#include <stdlib.h>
+#define MAX(a,b) ((a) > (b) ? (a) : (b))
+
+typedef struct TreeNode {
+	int data;
+	struct TreeNode* left, * right;
+} TreeNode;
+
+TreeNode n0 = { 0,NULL,NULL };
+TreeNode n1 = { 1, NULL, &n0 };
+TreeNode n2 = { 4, &n1, NULL };
+TreeNode n3 = { 16, NULL, NULL };
+TreeNode n7 = { 3, NULL, NULL };
+TreeNode n8 = { 100, NULL, NULL };
+TreeNode n4 = { 25, &n8, &n7 };
+TreeNode n5 = { 20, &n3, &n4 };
+TreeNode n6 = { 15, &n2, &n5 };
+TreeNode* root = &n6;
+
+// ë…¸ë“œì˜ ê°œìˆ˜ êµ¬í•˜ëŠ” í•¨ìˆ˜
+int getNodeCount(TreeNode* root) {
+	int cnt = 0;
+	if (root != NULL) {
+		cnt = 1 + getNodeCount(root->left) + getNodeCount(root->right);
+		// root ê°€ NULLì´ ì•„ë‹Œ ê²½ìš°ì—ë§Œ 1ì„ ë”í•˜ë„ë¡ í•´ì„œ  ë…¸ë“œì˜ ê°œìˆ˜ë¥¼ ê³„ì‚°
+	}
+	return cnt;
+}
+
+// leaf ë…¸ë“œì˜ ê°œìˆ˜ êµ¬í•˜ëŠ” í•¨ìˆ˜
+int getLeafNodeCount(TreeNode* root) {
+	int cnt = 0;
+	if (root != NULL) { 
+		if (root->left == NULL && root->right == NULL) {
+			return 1; // ìì‹ ë…¸ë“œê°€ ëª¨ë‘ NULLì´ë©´ leaf ë…¸ë“œ ì´ê¸° ë•Œë¬¸ì— 1ì„ ë°˜í™˜
+		}
+		else {
+			cnt = getLeafNodeCount(root->left) + getLeafNodeCount(root->right);
+		}
+	}
+	// root ê°€ NULL ì´ë©´ 0ì„ ë°˜í™˜
+	return cnt;	
+}
+
+// Non leaf ë…¸ë“œì˜ ê°œìˆ˜ êµ¬í•˜ëŠ” í•¨ìˆ˜
+int getNonLeafNodeCount(TreeNode* root) {
+	int cnt = 0;
+	if (root != NULL) {
+		if (root->left != NULL || root->right != NULL) {
+			// ìì‹ ë…¸ë“œê°€ 1ê°œ ì´ìƒ ìˆìœ¼ë©´ ë¦¬í”„ ë…¸ë“œê°€ ì•„ë‹ˆê¸° ë•Œë¬¸ì— ì´ì™€ ê°™ì´ ì¡°ê±´ì„ ì„¤ì •
+			cnt = 1 + getNonLeafNodeCount(root->left) + getNonLeafNodeCount(root->right); 
+		}
+		else {
+			return 0;
+		}
+	}
+	return cnt;
+}
+
+// íŠ¸ë¦¬ì˜ ë†’ì´ë¥¼ êµ¬í•˜ëŠ” í•¨ìˆ˜
+int getHeight(TreeNode* root) {
+	int height = 0;
+	if (root != NULL) {
+		height = 1 + MAX(getHeight(root->left), getHeight(root->right));
+	}
+	return height;
+}
+
+int main(void) {
+	printf("ë…¸ë“œì˜ ê°œìˆ˜ êµ¬í•˜ê¸° = %d\n", getNodeCount(root)); 
+	printf("Leaf ë…¸ë“œì˜ ê°œìˆ˜ êµ¬í•˜ê¸° = %d\n", getLeafNodeCount(root));
+	printf("Non Leaf ë…¸ë“œì˜ ê°œìˆ˜ êµ¬í•˜ê¸° = %d\n", getNonLeafNodeCount(root));
+	printf("Treeì˜ ë†’ì´ êµ¬í•˜ê¸° = %d\n", getHeight(root));
+	return 0;
+}
